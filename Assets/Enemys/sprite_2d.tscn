@@ -1,0 +1,62 @@
+<<<<<<< HEAD
+[gd_scene load_steps=8 format=3 uid="uid://dese08htcdg8"]
+=======
+[gd_scene load_steps=7 format=3 uid="uid://dese08htcdg8"]
+>>>>>>> e22c887885086dff16baa65654e9df843caf0e72
+
+[ext_resource type="Script" path="res://Assets/Scripts/inimigo.gd" id="1_7qdw6"]
+[ext_resource type="Texture2D" uid="uid://mnlbp2cikpm" path="res://Assets/Enemys/gosma.png" id="1_42bvk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7dvnk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_01eit"]
+atlas = ExtResource("1_42bvk")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lhyfx"]
+atlas = ExtResource("1_42bvk")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_utgk4"]
+atlas = ExtResource("1_42bvk")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ybcn5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_01eit")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lhyfx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_utgk4")
+}],
+"loop": true,
+"name": &"gosma",
+"speed": 5.0
+}]
+
+[node name="inimigo" type="CharacterBody2D"]
+<<<<<<< HEAD
+position = Vector2(218, 109)
+script = ExtResource("1_7qdw6")
+=======
+position = Vector2(175, 109)
+>>>>>>> e22c887885086dff16baa65654e9df843caf0e72
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7dvnk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CollisionShape2D"]
+sprite_frames = SubResource("SpriteFrames_ybcn5")
+animation = &"gosma"
+autoplay = "gosma"
+<<<<<<< HEAD
+
+[node name="wall_detector" type="RayCast2D" parent="."]
+target_position = Vector2(-7, 0)
+collision_mask = 6
+=======
+>>>>>>> e22c887885086dff16baa65654e9df843caf0e72

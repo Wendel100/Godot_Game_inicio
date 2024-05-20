@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxe6vflcwttsl"]
+
+[ext_resource type="Texture2D" uid="uid://c7wk0lutgvia7" path="res://Assets/Items/moedas.png" id="1_7np2h"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd1yl"]
+atlas = ExtResource("1_7np2h")
+region = Rect2(0, 0, 21, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei3gv"]
+atlas = ExtResource("1_7np2h")
+region = Rect2(21, 0, 21, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7noba"]
+atlas = ExtResource("1_7np2h")
+region = Rect2(42, 0, 21, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vn5qo"]
+atlas = ExtResource("1_7np2h")
+region = Rect2(63, 0, 21, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v0ve5"]
+atlas = ExtResource("1_7np2h")
+region = Rect2(84, 0, 21, 28)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mi2ub"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd1yl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ei3gv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7noba")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vn5qo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v0ve5")
+}],
+"loop": true,
+"name": &"moeda",
+"speed": 5.0
+}]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D"]
+position = Vector2(460, 180)
+sprite_frames = SubResource("SpriteFrames_mi2ub")
+animation = &"moeda"
+autoplay = "moeda"
+frame_progress = 0.969199

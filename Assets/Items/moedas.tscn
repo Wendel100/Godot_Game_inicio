@@ -1,0 +1,119 @@
+[gd_scene load_steps=16 format=3 uid="uid://bmkryo4f3k4lp"]
+
+[ext_resource type="Texture2D" uid="uid://bm8por5uuffax" path="res://Assets/Items/efeito.png" id="1_6oc68"]
+[ext_resource type="Texture2D" uid="uid://c7wk0lutgvia7" path="res://Assets/Items/moedas.png" id="1_s8ayl"]
+[ext_resource type="AudioStream" uid="uid://cpy5x2lo10bob" path="res://Assets/efeitos_sonoros/Moeda_sound.mp3" id="3_kaco7"]
+[ext_resource type="FontFile" uid="uid://caxlgisar4bj3" path="res://Assets/fontes_game/BAUHS93.TTF" id="4_na5gb"]
+
+[sub_resource type="GDScript" id="GDScript_rhdje"]
+script/source = "extends Area2D 
+var moeda:int =0
+func _on_body_entered(body):
+	if (body.name==\"Player\"):
+		Gameglobal.moedas +=1
+		$AudioStreamPlayer2D.play()
+		$AnimatedSprite2D.play(\"coletar\")
+		print(\"coletou moeda:\"+ str((Gameglobal.moedas)))
+		$CanvasLayer/Label.set_text(str(Gameglobal.moedas))
+func _on_animated_sprite_2d_animation_finished():
+	queue_free()
+"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k8mcf"]
+atlas = ExtResource("1_6oc68")
+region = Rect2(0, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ed6oc"]
+atlas = ExtResource("1_6oc68")
+region = Rect2(15, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ythvq"]
+atlas = ExtResource("1_6oc68")
+region = Rect2(30, 0, 15, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0b7yc"]
+atlas = ExtResource("1_s8ayl")
+region = Rect2(0, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_snry5"]
+atlas = ExtResource("1_s8ayl")
+region = Rect2(22, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o7ctp"]
+atlas = ExtResource("1_s8ayl")
+region = Rect2(44, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yqml"]
+atlas = ExtResource("1_s8ayl")
+region = Rect2(66, 0, 22, 27)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xxh7n"]
+atlas = ExtResource("1_s8ayl")
+region = Rect2(88, 0, 22, 27)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ps46l"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k8mcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ed6oc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ythvq")
+}],
+"loop": false,
+"name": &"coletar",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0b7yc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_snry5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o7ctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yqml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xxh7n")
+}],
+"loop": true,
+"name": &"moedas",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tur8y"]
+
+[node name="Area2D" type="Area2D"]
+collision_layer = 15
+script = SubResource("GDScript_rhdje")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(253, 108)
+sprite_frames = SubResource("SpriteFrames_ps46l")
+animation = &"coletar"
+autoplay = "moedas"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(253, 108)
+shape = SubResource("CircleShape2D_tur8y")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_kaco7")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("4_na5gb")
+theme_override_font_sizes/font_size = 70
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

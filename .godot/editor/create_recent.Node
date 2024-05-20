@@ -1,0 +1,28 @@
+AnimatedSprite2D
+CollisionShape2D
+CharacterBody2D
+Label
+CanvasLayer
+AudioStreamPlayer2D
+<<<<<<< HEAD
+AudioStreamPlayer
+AudioListener2D
+Sprite2D
+TileMap
+Button
+VBoxContainer
+RayCast2D
+AnimatedSprite2D
+CollisionShape2D
+CharacterBody2D
+Label
+CanvasLayer
+Area2D
+=======
+TileMap
+Area2D
+Sprite2D
+Camera2D
+CollisionPolygon2D
+StaticBody2D
+>>>>>>> e22c887885086dff16baa65654e9df843caf0e72

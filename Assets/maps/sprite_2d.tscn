@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cdg3d54rrk6he"]
+
+[ext_resource type="Texture2D" uid="uid://qje5a7aev4ih" path="res://Assets/maps/ceuNoturno.png" id="1_yrx4w"]
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(576.5, 321)
+scale = Vector2(1.145, 1.264)
+texture = ExtResource("1_yrx4w")

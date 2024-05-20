@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+res://Assets/maps/start_screen.tscn
+res://Assets/Scripts/start_screen.gd
+res://Assets/Items/moedas.tscn
+res://Assets/maps/mundo_01.tscn
+=======
+res://Assets/maps/mundo_01.tscn
+res://Assets/Players/player.tscn
+res://Assets/maps/mundo_02.tscn
+res://Player.gd
+res://Assets/Items/moedas.tscn
+res://Assets/Players/player.gd
+res://Assets/Scripts/gameglobal.gd
+res://Assets/Enemys/sprite_2d.tscn
+>>>>>>> e22c887885086dff16baa65654e9df843caf0e72

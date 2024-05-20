@@ -1,0 +1,49 @@
+[gd_scene load_steps=7 format=3 uid="uid://crq0ab7cmlruh"]
+
+[ext_resource type="Texture2D" uid="uid://c7wk0lutgvia7" path="res://Assets/Items/moedas.png" id="1_5xswr"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w8xxs"]
+texture = ExtResource("1_5xswr")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_8o8gs"]
+sources/0 = SubResource("TileSetAtlasSource_w8xxs")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppcwr"]
+atlas = ExtResource("1_5xswr")
+region = Rect2(0, 0, 26, 37)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v81ll"]
+atlas = ExtResource("1_5xswr")
+region = Rect2(26, 0, 26, 37)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5wr21"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ppcwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v81ll")
+}],
+"loop": true,
+"name": &"girar",
+"speed": 5.0
+}]
+
+[node name="TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_8o8gs")
+rendering_quadrant_size = 2
+format = 2
+layer_0/tile_data = PackedInt32Array(655365, 0, 0, 720901, 0, 1, 655366, 65536, 0, 720902, 65536, 1, 655367, 131072, 0, 720903, 131072, 1, 655368, 0, 0, 720904, 0, 1, 655369, 65536, 0, 720905, 65536, 1, 655370, 131072, 0, 720906, 131072, 1, 655371, 0, 0, 720907, 0, 1, 655372, 65536, 0, 720908, 65536, 1, 655373, 131072, 0, 720909, 131072, 1, 786443, 0, 0, 851979, 0, 1, 786444, 65536, 0, 851980, 65536, 1, 786445, 131072, 0, 851981, 131072, 1, 458762, 0, 0, 524298, 0, 1, 458763, 65536, 0, 524299, 65536, 1, 458764, 131072, 0, 524300, 131072, 1, 458765, 0, 0, 524301, 0, 1, 458766, 65536, 0, 524302, 65536, 1, 458767, 131072, 0, 524303, 131072, 1)
+
+[node name="money" type="AnimatedSprite2D" parent="."]
+position = Vector2(123, 88)
+sprite_frames = SubResource("SpriteFrames_5wr21")
+animation = &"girar"
+frame_progress = 0.7705
